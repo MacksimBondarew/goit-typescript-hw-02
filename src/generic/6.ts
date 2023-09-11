@@ -8,16 +8,26 @@
 */
 
 type User = {
-  name: string;
-  surname: string;
-  email: string;
-  password: string;
+    name: string;
+    surname: string;
+    email: string;
+    password: string;
+};
+
+const userProfile = {
+    name: "Max",
+    surname: "Max",
+    email: "Max",
+    password: "Max",
+};
+
+function createOrUpdateUser<T extends object>(initialValues: T): User {
+    return {
+        ...userProfile,
+        ...initialValues,
+    };
 }
 
-function createOrUpdateUser(initialValues: User) {
-  // Оновлення користувача
-}
-
-createOrUpdateUser({ email: 'user@mail.com', password: 'password123' });
+createOrUpdateUser({ email: "user@mail.com", password: "password123" });
 
 export {};
